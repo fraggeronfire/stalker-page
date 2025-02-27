@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+    <title>Stalker by vendettaDev☢️</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <ul class="nav_menu">
+                    <li class="list_item"><a href="https://www.stalker2.com/uk" target="_blank">Home</a></li>
+                    <li class="list_item"><a href="https://www.stalker2.com/uk/news" target="_blank">News</a></li>
+                    <li class="list_item"><a href="https://www.stalker2.com/ru/editions/digital" target="_blank">Buy</a></li>
+                </ul>
+
+                <div class="logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+                        <text x="50%" y="55%" font-size="32" text-anchor="middle" fill="yellow">☢️</text>
+                        <text x="50%" y="95%" font-size="10" text-anchor="middle" fill="yellow" font-family="Arial, sans-serif" font-weight="bold">
+                            vendettaDev
+                        </text>
+                    </svg>
+                </div>
+                
+                <div class="buttons">
+                    <button class="download-btn" onclick="window.location.href='https://store.steampowered.com/app/1643320/STALKER_2_Heart_of_Chornobyl/'">Download</button>
+                    <button id="registerBtn" class="register-btn">register</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <h2>Registration</h2>
+            <form id="registerForm" action="/registration" method="post" novalidate data-js-form>
+                <p class="field">
+                    <label class="field__label" for="username">Login</label>
+                    <input
+                        class="field__control"
+                        id="username"
+                        name="login"
+                        required
+                        minlength="6"
+                        maxlength="12"
+                        aria-errormessage="login-errors"
+                    />
+                    <span class="field__errors" id="login-errors" data-js-form-field-errors></span>
+                </p>
+    
+                <p class="field">
+                    <label class="field__label" for="password">Password</label>
+                    <input
+                        class="field__control"
+                        id="password"
+                        name="password"
+                        type="password"
+                        required
+                        minlength="8"
+                        maxlength="16"
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}"
+                        title="The password must be between 8 and 16 characters long and include at least one digit, one lowercase letter, and one uppercase letter."
+                        aria-errormessage="password-errors"
+                    />
+                    <span class="field__errors" id="password-errors" data-js-form-field-errors></span>
+                </p>
+    
+                <p class="field">
+                    <label class="field__label" for="about">About me</label>
+                    <textarea class="field__control" id="about" name="about"></textarea>
+                </p>
+    
+                <fieldset class="radios">
+                    <legend class="radios__legend">Gender</legend>
+                    
+                    <div class="radio-group">
+                        <input class="radios__control" id="male" name="gender" type="radio" value="Male" required />
+                        <label class="radios__label" for="male">Male</label>
+                    </div>
+                
+                    <div class="radio-group">
+                        <input class="radios__control" id="female" name="gender" type="radio" value="Female" required />
+                        <label class="radios__label" for="female">Female</label>
+                    </div>
+                </fieldset>
+    
+                    <span class="field__errors" id="gender-errors" data-js-form-field-errors></span>
+                </fieldset>
+    
+                <div class="field checkbox">
+                    <input
+                        class="checkbox__control"
+                        id="agreement"
+                        name="agreement"
+                        type="checkbox"
+                        required
+                        aria-errormessage="agreement-errors"
+                    />
+                    <label class="field__label checkbox__label" for="agreement">I agree with the usage policy</label>
+                    <span class="field__errors" id="agreement-errors" data-js-form-field-errors></span>
+                </div>
+    
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <section id="heroSection" class="hero">
+        <div class="hero-content">
+            <div class="hero-buttons">
+                <button class="scroll-btn" data-target="trailerSection">Watch Trailer</button>
+                <button class="scroll-btn" data-target="gallerySection">Screenshots</button>
+                <button class="scroll-btn" data-target="gameplaySection">Gameplay</button>
+            </div>
+        </div>
+    </section>
+    
+    <section id="trailerSection" class="video-section">
+        <h2 class="fan-trailer">S.T.A.L.K.E.R. 2 Fan Trailer</h2>
+        <div class="video-container">
+            <iframe width="80%" height="600" src="https://www.youtube.com/embed/mGAEIiUpnts?&mute=1" 
+                    title="S.T.A.L.K.E.R. 2 Fan Trailer" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+        </div>
+        <div class="buttons-container">
+            <button class="back-btn" data-target="heroSection">↕</button>
+            <button class="scroll-down-btn" data-target="gallerySection">↓</button>
+        </div>
+    </section>
+    
+    <section id="gallerySection" class="gallery">
+        <h2>Screenshot Showcase</h2>
+        <div class="gallery-container">
+            <img src="images/screenshot-1.jpg" alt="Screenshot 1">
+            <img src="images/screenshot-2.jpg" alt="Screenshot 2">
+            <img src="images/screenshot-3.jpg" alt="Screenshot 3">
+            <img src="images/screenshot-4.jpg" alt="Screenshot 4">
+            <img src="images/screenshot-5.jpg" alt="Screenshot 5">
+            <img src="images/screenshot-6.jpg" alt="Screenshot 6">
+        </div>
+        <div class="buttons-container-gallery">
+            <button class="back-btn" data-target="heroSection">↕</button>
+            <button class="scroll-up-btn" data-target="trailerSection">↑</button>
+            <button class="scroll-down-btn" data-target="gameplaySection">↓</button>
+        </div>
+    </section>
+
+    <section id="gameplaySection" class="gameplay-section">
+        <h2 class="gameplay-title">Gameplay</h2>
+        <div class="gameplay-wrapper">
+            <video src="videos/01.webm" class="gameplay-video small" loop muted ></video>
+            <video src="videos/02.webm" class="gameplay-video small" loop muted ></video>
+            <video src="videos/03.webm" class="gameplay-video small" loop muted ></video>
+            <video src="videos/04.webm" class="gameplay-video small" loop muted ></video>
+        </div>
+        
+        <div class="big-video-container">
+            <video src="videos/gameplay.webm" class="gameplay-video big" loop muted autoplay playsinline></video>
+        </div>
+        <div class="buttons-container-gallery">
+            <button class="back-btn" data-target="heroSection">↕</button>
+            <button class="scroll-up-btn" data-target="gallerySection">↑</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-text">
+                <p>Made by vendetta, fan site</p>
+            </div>
+            
+            <div class="logo-footer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+                    <text x="50%" y="55%" font-size="32" text-anchor="middle" fill="yellow">☢️</text>
+                    <text x="50%" y="95%" font-size="10" text-anchor="middle" fill="yellow" font-family="Arial, sans-serif" font-weight="bold">
+                        vendettaDev
+                    </text>
+                </svg>
+                <div class="line-container">
+                    <img src="images/radiation-line.svg" alt="">
+                </div>
+            </div>
+    
+            <div class="social-icons">
+                <a href="//discord.gg/stalker" target="_blank" class="steam-icon">
+                    <img src="icons/discord.svg" alt="Discord" />
+                </a>
+                <a href="//www.facebook.com/officialstalker" target="_blank" class="steam-icon">
+                    <img src="icons/facebook.svg" alt="Facebook" />
+                </a>
+                <a href="//www.instagram.com/stalker2_thegame/" target="_blank" class="steam-icon">
+                    <img src="icons/instagram.svg" alt="Instagram" />
+                </a>
+                <a href="//www.reddit.com/r/stalker/" target="_blank" class="steam-icon">
+                    <img src="icons/reddit.svg" alt="Reddit" />
+                </a>
+                <a href="//twitter.com/stalker_thegame" target="_blank" class="steam-icon">
+                    <img src="icons/x.svg" alt="Twitter" />
+                </a>
+                <a href="//www.youtube.com/channel/UCk96JambgW5zsOBquR63iEQ" target="_blank" class="steam-icon">
+                    <img src="icons/youtube.svg" alt="YouTube" />
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
