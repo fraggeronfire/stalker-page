@@ -2,14 +2,11 @@ const modal = document.getElementById('modal');
 const registerBtn = document.getElementById('registerBtn');
 const closeModal = document.getElementById('closeModal');
 const registerForm = document.getElementById('registerForm');
+const checkbox = document.getElementById('agreement');
+const checkboxError = document.getElementById('agreement-errors');
 
-registerBtn.addEventListener('click', () => {
-    modal.style.display = "flex";
-});
-
-closeModal.addEventListener('click', () => {
-    modal.style.display = "none";
-});
+registerBtn.addEventListener('click', () => modal.style.display = "flex");
+closeModal.addEventListener('click', () => modal.style.display = "none");
 
 window.addEventListener('click', (event) => {
     if (event.target === modal) {
@@ -17,12 +14,14 @@ window.addEventListener('click', (event) => {
     }
 });
 
+
+
 class FormValidation {
     selectors = {
         form: '[data-js-form]',
         fieldErrors: '[data-js-form-field-errors]',
     }
-    
+
     errorMessages = {
         valueMissing: () => 'Please, fill out this field',
         patternMismatch: ({ title }) => title || 'Data does not match format',
@@ -31,7 +30,7 @@ class FormValidation {
     }
 
     constructor(){
-        this.bindEvents()
+        this.bindEvents();
     }
 
     manageErrors(fieldControlElement, errorMessages) {
@@ -118,16 +117,13 @@ new FormValidation();
 
 
 
-document.getElementById('registerForm').addEventListener('submit', function (event) {
-    event.preventDefault(); 
+registerForm.addEventListener('submit', function (event) {
+    event.preventDefault();
 
     if (!this.checkValidity()) { 
         this.reportValidity(); 
         return;
     }
-
-    const checkbox = document.getElementById('agreement');
-    const checkboxError = document.getElementById('agreement-errors');
 
     if (!checkbox.checked) {
         checkboxError.innerHTML = '<span class="field__error">You must agree with the usage policy</span>';
@@ -136,12 +132,10 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
         checkboxError.innerHTML = '';
     }
 
-    
     alert("Registration successful!");
-    this.reset(); 
-    modal.style.display = "none"; 
+    this.reset();
+    modal.style.display = "none";
 });
-
 
 
 
@@ -149,8 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.scroll-btn, .back-btn, .scroll-down-btn, .scroll-up-btn').forEach(button => {
         button.addEventListener('click', function (event) {
             event.preventDefault();
-            const targetId = this.getAttribute('data-target');
-            const targetSection = document.getElementById(targetId);
+            const targetSection = document.getElementById(this.getAttribute('data-target'));
             
             if (targetSection) {
                 window.scrollTo({
@@ -158,28 +151,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     behavior: 'smooth'
                 });
             } else {
-                console.error(`Элемент с id '${targetId}' не найден`);
+                console.error(`Элемент с id '${this.getAttribute('data-target')}' не найден`);
             }
         });
     });
-});
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
     const bigVideo = document.querySelector('.big-gameplay-video');
-    if (bigVideo) {
-        bigVideo.play();
-    }
+    if (bigVideo) bigVideo.play();
+
 
     document.querySelectorAll('.gameplay-video').forEach(video => {
-        video.addEventListener('mouseenter', () => {
-            video.play();
-        });
-
+        video.addEventListener('mouseenter', () => video.play());
         video.addEventListener('mouseleave', () => {
             video.pause();
-            video.currentTime = 0; 
+            video.currentTime = 0;
         });
     });
 });
