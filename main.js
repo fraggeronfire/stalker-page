@@ -8,20 +8,29 @@ const registerForm = document.getElementById('registerForm');
 const checkbox = document.getElementById('agreement');
 const checkboxError = document.getElementById('agreement-errors');
 
-aboutBtn.addEventListener('click', () => aboutModal.style.display = "flex")
-registerBtn.addEventListener('click', () => modal.style.display = "flex");
-closeModal.addEventListener('click', () => modal.style.display = "none");
-closeAboutModal.addEventListener('click', () => aboutModal.style.display = "none")
+aboutBtn.addEventListener('click', () => {
+    aboutModal.classList.add('show'); 
+});
+
+registerBtn.addEventListener('click', () => {
+    modal.classList.add('show'); 
+});
+
+closeModal.addEventListener('click', () => {
+    modal.classList.remove('show'); 
+});
+
+closeAboutModal.addEventListener('click', () => {
+    aboutModal.classList.remove('show'); 
+});
+
 
 window.addEventListener('click', (event) => {
     if (event.target === modal) {
-        modal.style.display = "none";
+        modal.classList.remove('show'); 
     }
-});
-
-window.addEventListener('click', (event) => {
     if (event.target === aboutModal) {
-        aboutModal.style.display = "none";
+        aboutModal.classList.remove('show'); 
     }
 });
 
