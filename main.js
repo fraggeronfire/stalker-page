@@ -1,12 +1,17 @@
 const modal = document.getElementById('modal');
+const aboutModal = document.getElementById('aboutModal')
+const aboutBtn = document.getElementById('aboutBtn')
 const registerBtn = document.getElementById('registerBtn');
 const closeModal = document.getElementById('closeModal');
+const closeAboutModal = document.getElementById('closeAboutModal')
 const registerForm = document.getElementById('registerForm');
 const checkbox = document.getElementById('agreement');
 const checkboxError = document.getElementById('agreement-errors');
 
+aboutBtn.addEventListener('click', () => aboutModal.style.display = "flex")
 registerBtn.addEventListener('click', () => modal.style.display = "flex");
 closeModal.addEventListener('click', () => modal.style.display = "none");
+closeAboutModal.addEventListener('click', () => aboutModal.style.display = "none")
 
 window.addEventListener('click', (event) => {
     if (event.target === modal) {
@@ -14,6 +19,11 @@ window.addEventListener('click', (event) => {
     }
 });
 
+window.addEventListener('click', (event) => {
+    if (event.target === aboutModal) {
+        aboutModal.style.display = "none";
+    }
+});
 
 
 class FormValidation {
