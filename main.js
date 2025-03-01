@@ -8,32 +8,17 @@ const registerForm = document.getElementById('registerForm');
 const checkbox = document.getElementById('agreement');
 const checkboxError = document.getElementById('agreement-errors');
 
-aboutBtn.addEventListener('click', () => {
-    aboutModal.classList.add('show'); 
-});
-
-registerBtn.addEventListener('click', () => {
-    modal.classList.add('show'); 
-});
-
-closeModal.addEventListener('click', () => {
-    modal.classList.remove('show'); 
-});
-
-closeAboutModal.addEventListener('click', () => {
-    aboutModal.classList.remove('show'); 
-});
-
-
-window.addEventListener('click', (event) => {
-    if (event.target === modal) {
-        modal.classList.remove('show'); 
+document.addEventListener('click', event => {
+    if (event.target.matches ('#aboutBtn')) {
+        aboutModal.classList.add('show')
+    } else if (event.target.matches('#registerBtn')) {
+        modal.classList.add('show')
+    } else if (event.target.matches('#closeModal') || event.target === modal) {
+        modal.classList.remove('show')
+    } else if (event.target.matches('#closeAboutModal') || event.target === aboutModal) {
+        aboutModal.classList.remove('show')
     }
-    if (event.target === aboutModal) {
-        aboutModal.classList.remove('show'); 
-    }
-});
-
+})
 
 class FormValidation {
     selectors = {
